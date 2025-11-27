@@ -1,18 +1,17 @@
-# 🌸 Flower Image Clustering
+# 🎯 Image Clustering ML
 
 ```
-  _____ _                          
- |  ___| | _____      _____ _ __   
- | |_  | |/ _ \ \ /\ / / _ \ '__|  
- |  _| | | (_) \ V  V /  __/ |     
- |_|   |_|\___/ \_/\_/ \___|_|     
-                                   
-   ____ _           _            _             
-  / ___| |_   _ ___| |_ ___ _ __(_)_ __   __ _ 
- | |   | | | | / __| __/ _ \ '__| | '_ \ / _` |
- | |___| | |_| \__ \ ||  __/ |  | | | | | (_| |
-  \____|_|\__,_|___/\__\___|_|  |_|_| |_|\__, |
-                                         |___/ 
+  ___                              ____ _           _            _             
+ |_ _|_ __ ___   __ _  __ _  ___  / ___| |_   _ ___| |_ ___ _ __(_)_ __   __ _ 
+  | || '_ ` _ \ / _` |/ _` |/ _ \| |   | | | | / __| __/ _ \ '__| | '_ \ / _` |
+  | || | | | | | (_| | (_| |  __/| |___| | |_| \__ \ ||  __/ |  | | | | | (_| |
+ |___|_| |_| |_|\__,_|\__, |\___| \____|_|\__,_|___/\__\___|_|  |_|_| |_|\__, |
+                      |___/                                              |___/ 
+        __  __ _     
+       |  \/  | |    
+       | |\/| | |    
+       | |  | | |___ 
+       |_|  |_|_____|
 ```
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -20,7 +19,9 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**Unsupervised Machine Learning** project that clusters 603 flower images using a custom **K-Means-style algorithm** with **Cosine Similarity** for feature comparison.
+**ML-based image clustering** using unsupervised learning algorithms. Features a custom **K-Means-style implementation** with **Cosine Similarity** for high-dimensional feature spaces.
+
+**Demonstrated on 603 flower images** achieving 82%+ clustering accuracy (Rand Score).
 
 ---
 
@@ -42,7 +43,7 @@
 
 ## 🎯 Overview
 
-This project implements an **unsupervised clustering algorithm** to group flower images based on their visual features. Instead of using pre-trained models or standard K-Means, it implements a **custom clustering approach** that:
+This project implements an **unsupervised clustering algorithm** for grouping images based on visual feature similarity. Instead of using pre-trained models or standard K-Means, it implements a **custom clustering approach** that:
 
 - Uses **Cosine Similarity** to measure feature vector similarity
 - Dynamically creates clusters based on a minimum similarity threshold
@@ -52,7 +53,11 @@ This project implements an **unsupervised clustering algorithm** to group flower
 
 ### Why This Approach?
 
-Traditional K-Means requires knowing the number of clusters in advance. This implementation **dynamically discovers** the optimal number of clusters based on feature similarity, making it more flexible for real-world datasets where the number of categories is unknown.
+Traditional K-Means requires knowing the number of clusters in advance. This implementation **dynamically discovers** the optimal number of clusters based on feature similarity, making it more flexible for datasets where the number of categories is unknown.
+
+### Current Demonstration
+
+The algorithm is **demonstrated on a dataset of 603 flower images**, showcasing its effectiveness in Computer Vision applications. The modular design allows for easy adaptation to other image datasets.
 
 ---
 
@@ -60,7 +65,7 @@ Traditional K-Means requires knowing the number of clusters in advance. This imp
 
 | Feature | Description |
 |---------|-------------|
-| 🎨 **603 Flower Images** | Rich dataset with diverse flower types |
+| 🎨 **Image Dataset** | Demonstrated on 603 flower images with diverse visual features |
 | 🧮 **Cosine Similarity** | Robust similarity metric for high-dimensional feature vectors |
 | 🔄 **Iterative Refinement** | K-Means-style centroid recalculation until convergence |
 | 🎯 **Dynamic Clustering** | Automatic cluster creation based on similarity threshold |
@@ -115,12 +120,16 @@ The algorithm stops when:
 
 ## 📊 Dataset
 
-### Flower Images
+### Demo: Flower Images
 
-- **Total Images**: 603 flower photographs
+The current implementation is demonstrated on a flower image dataset:
+
+- **Total Images**: 603 flower photographs  
 - **Categories**: Multiple flower species (dynamically discovered by algorithm)
 - **Format**: PNG images organized by category (00-19)
 - **Features**: Pre-extracted feature vectors (stored in `image-features.pkl`)
+
+The algorithm is **dataset-agnostic** and can be applied to any image collection with pre-extracted features.
 
 ### Data Structure
 
@@ -149,8 +158,8 @@ data/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/Dan-Ofri/FlowerClustering.git
-cd FlowerClustering
+git clone https://github.com/Dan-Ofri/Image-Clustering-ML.git
+cd Image-Clustering-ML
 ```
 
 2. **Install dependencies**
@@ -225,7 +234,7 @@ total time: 3.0 sec
 ## 📁 Project Structure
 
 ```
-FlowerClustering/
+Image-Clustering-ML/
 │
 ├── main.py              # Main clustering algorithm
 ├── utils.py             # Evaluation and utility functions
@@ -234,8 +243,8 @@ FlowerClustering/
 ├── README.md            # This file
 │
 └── data/
-    └── flowers/
-        ├── image-features.pkl        # Feature vectors
+    └── flowers/                      # Demo dataset
+        ├── image-features.pkl        # Pre-extracted feature vectors
         ├── flowers-solution.csv      # Ground truth labels
         └── images/                   # 603 flower images
             ├── 00_*.png
@@ -298,14 +307,16 @@ This project was developed as part of the **Computational Learning with Python**
 
 ---
 
-## 🔮 Future Improvements
+## 🔮 Potential Extensions
 
-- [ ] Add visualization of clusters (t-SNE/PCA projection)
-- [ ] Implement alternative similarity metrics (Euclidean, Manhattan)
-- [ ] Support for different feature extraction methods
+- [ ] Support for additional image datasets (animals, vehicles, faces)
+- [ ] Visualization of clusters (t-SNE/PCA projection)
+- [ ] Alternative similarity metrics (Euclidean, Manhattan)
+- [ ] Real-time feature extraction (CNN-based)
 - [ ] Interactive cluster exploration tool
-- [ ] Comparison with standard K-Means
+- [ ] Comparison with standard K-Means and DBSCAN
 - [ ] GPU acceleration for larger datasets
+- [ ] Web interface for uploading custom datasets
 
 ---
 
